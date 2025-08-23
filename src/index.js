@@ -1,6 +1,8 @@
 const express = require('express');
-const {PORT} = require('./config/serverConfig');
 const bodyParser = require('body-parser');
+
+const {PORT} = require('./config/serverConfig');
+
 
 const setupAndStartServer = async () =>{
     
@@ -12,10 +14,9 @@ const setupAndStartServer = async () =>{
 
     //tells Express to parse URL-encoded payloads (like from HTML forms).
     app.use(bodyParser.urlencoded({extended:true})); // middleware
-    
+
     app.listen(PORT,()=>{
         console.log(`Server started at ${PORT}`);
-        console.log(PORT);
     })
 }
 
