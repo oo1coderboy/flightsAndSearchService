@@ -42,6 +42,16 @@ class CityRepository {
             throw { error };
         }
     }
+
+    async getAllCity() {
+        try {
+            const cities = await City.findAll();
+            return cities;
+        } catch (error) {
+            console.log("Failed to fetch all the cities!");
+            throw {error};
+        }
+    }
     
     async getCity({id}){
         try {

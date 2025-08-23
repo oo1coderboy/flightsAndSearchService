@@ -3,7 +3,7 @@ const {CityService} = require('../services/index');
 
 const cityService = new CityService();
 
-// POST : /city  -> req.body
+// POST :-> /city  -> req.body
 const create = async (req,res) => {
     try {
         console.log("Request-body: ",req.body);
@@ -55,13 +55,34 @@ const update = async (req,res) => {
         return res.status(200).json({
             data:response,
             success:true,
-            message:'Successfully updated the city record !'
+            message:'Successfully updated the city record !',
+            err:null
         })
     } catch (error) {
         return res.status(500).json({
             data:{},
             success:false,
             message:`Not able to update the city !`,
+            err:error
+        })
+    }
+}
+
+// GET : -> /city 
+const getAllCities = async (req,res) =>{
+    try {
+        const response = await cityService.getAllCity();
+        return res.status(200).json({
+            data:response,
+            success:true,
+            message:"Successfully fetched all the cities data!",
+            err: null
+        })
+    } catch (error) {
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:"Failed to fetch all the cities data.",
             err:error
         })
     }
@@ -92,5 +113,6 @@ module.exports = {
     create,
     destroy,
     update,
+    getAllCities,
     get
 }
