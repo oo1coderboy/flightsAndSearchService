@@ -22,14 +22,17 @@
 and then execute `npx sequelize db:migrate`
 
 
-## DB Design
-  - Airplane Table
+## Database Design for flightandSearch microservice
+**Tables**
+  - Airplane
   - Flight
   - Airport
   - City
 
+**Relationship**
   - A flight belongs to an airplane but one airplane can be used in multiple flights.
-  - A city has many airports but one airport belogns to a city.
+  - A city has many airports but one airport belongs to a city.
   - One airport can have many flights, but a flight belongs to one airport.
 
-![Db Design Screenshot](images/dbDesign.png)
+<h2>✈️ flightandSearch DB Design</h2>
+<img src="images/dbDesign.png" alt="Db Design Screenshot" width="500"/>
