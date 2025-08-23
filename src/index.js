@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const {PORT} = require('./config/serverConfig');
-
+const ApiRoutes = require('./routes/index');
 
 const setupAndStartServer = async () =>{
     
@@ -15,6 +15,8 @@ const setupAndStartServer = async () =>{
     //tells Express to parse URL-encoded payloads (like from HTML forms).
     app.use(bodyParser.urlencoded({extended:true})); // middleware
 
+    app.use('/api',ApiRoutes);
+    
     app.listen(PORT,()=>{
         console.log(`Server started at ${PORT}`);
     })

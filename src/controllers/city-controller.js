@@ -6,9 +6,10 @@ const cityService = new CityService();
 // POST : /city  -> req.body
 const create = async (req,res) => {
     try {
-        const city = await cityService.createCity(req.body);
-        return city.status(201).json({
-            data:city,
+        console.log("Request-body: ",req.body);
+        const response = await cityService.createCity(req.body);
+        return res.status(201).json({
+            data:response,
             success:true,
             message:'Successfully created a city!',
             err:{}
@@ -29,7 +30,7 @@ const destroy = async (req,res) => {
     try {
         const response = await cityService.deleteCity(req);
 
-        return response.status(200).json({
+        return res.status(200).json({
             data:response,
             success:true,
             message:`Successfully deleted the city with id ${req.params.id}`,
@@ -50,7 +51,7 @@ const destroy = async (req,res) => {
 const update = async (req,res) => {
     try {
         const response = await cityService.updateCity(req.params.id,req.body);
-        return response.status(200).json({
+        return res.status(200).json({
             data:response,
             success:true,
             message:'Successfully updated the city record !'
@@ -69,7 +70,7 @@ const update = async (req,res) => {
 const get = async (req,res) => {
     try {
         const response = await cityService.getCity(req.params.id);
-        return response.status(200).json({
+        return res.status(200).json({
             data:response,
             success:true,
             message:`Successfully fetched the city with the id as ${req.params.id}`,

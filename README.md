@@ -1,11 +1,16 @@
-# Welcome to Flights Service
+# Welcome to Flights Service ✈️
 
 ## Project Setup
-- clone the project on your local
-- Execute `npm install` on the same path as of your root directory of the downloaded project.
-- Create a `.env` file in the root directory and add the following environment variable
-    - `PORT=3000`
-- Inside the `src/config` folder create a new file `config.json` and then add the following piece of json
+- Clone the project to your local system.
+- Run the following command in the root directory of the project to install dependencies:  
+```
+  npm install
+```
+- Create a `.env` file in the root directory and add the following environment variable:
+```
+ PORT = 3000
+```
+- Inside the `src/config` folder, create a new file `config.json` and add the following configuration:
 
 ```
 {
@@ -18,21 +23,24 @@
   },
 }
 ```
-- Once you've added your db config as listed above, go to the src folder from your terminal and execure `npx sequelize db:create`
-and then execute `npx sequelize db:migrate`
+- Once you've added your DB config, go to the `src` folder from your terminal and run the following
 
+```
+npx sequelize db:create
+npx sequelize db:migrate
+```
 
-## Database Design for flightandSearch microservice
-**Tables**
+## Database Design
+**Tables:**
   - Airplane
   - Flight
   - Airport
   - City
 
-**Relationship**
-  - A flight belongs to an airplane but one airplane can be used in multiple flights.
-  - A city has many airports but one airport belongs to a city.
+**Relationships:**
+  - A flight belongs to an airplane, but one airplane can be used in multiple flights.
+  - A city has many airports, but one airport belongs to a single city.
   - One airport can have many flights, but a flight belongs to one airport.
 
-<h2>✈️ flightandSearch DB Design</h2>
-<img src="images/dbDesign.png" alt="Db Design Screenshot" width="500"/>
+<h2>✈️ DB Design Diagram</h2>
+<img src="images/dbDesign.png" alt="Db Design Screenshot" width="450" style="border-radius:15px;" />
