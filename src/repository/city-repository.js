@@ -35,6 +35,7 @@ class CityRepository {
                     },
                 },
             );
+            return city;
         } catch (error) {
             console.log("Something went wrong in the updateCity repository layer.");
             throw { error };
