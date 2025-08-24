@@ -44,3 +44,9 @@ npx sequelize db:migrate
 
 <h2>✈️ DB Design Diagram</h2>
 <img src="images/dbDesign.png" alt="Db Design Screenshot" width="450" style="border-radius:15px;" />
+
+## Tables schema
+### City -> id, name, created_at, updated_at
+### Airport -> id, name , address, city_id, created_at, updated_at
+  **Relationships**
+    - City has many airports and Airport belongs to a city (one to many)
