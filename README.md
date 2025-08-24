@@ -50,3 +50,36 @@ npx sequelize db:migrate
 ### Airport -> id, name , address, city_id, created_at, updated_at
   **Relationships**
     - City has many airports and Airport belongs to a city (one to many)
+
+***Commands for creating the new model: Airport***
+```
+npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
+npx sequelize db:migrate
+```
+
+## Database Seeding with Sequelize
+**1.Generate a seeder file for Cities**
+  - To generate a new seeder file, run:
+  ```
+  npx sequelize seed:generate --name <name-of-seeder>
+  ```
+  - Example 
+  ```
+  npx sequelize seed:generate --name add-cities
+  ```
+**2. Run All Seeders
+  -To insert seed data into the database, run:
+  ```
+  npx sequelize db:seed:all
+  ```
+
+**3. Run a Specific Seeder
+  - To run only one specific seeder:
+  ```
+  npx sequelize seed:generate --name <seeder-file-name.js>
+  ```
+
+- Example 
+  ```
+  npx sequelize db:seed --seed 20250824050359-add-cities.js
+  ```
